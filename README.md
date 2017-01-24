@@ -1,2 +1,2 @@
-# Sensors, Body & Motion
-Code used for the NYU Abu Dhabi Spring 2017 cls
+# Sensors, Body, & Motion
+Code examples for NYU Abu Dhabi Spring 2017 class.
