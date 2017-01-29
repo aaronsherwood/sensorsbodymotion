@@ -24,8 +24,4 @@ void loop() {
 
   //print the results to the serial monitor
   Serial.println(digitalRead(sensorPin));
-
-  //a short delay. delays can help efficiency
-  //if very quick readings are not needed.
-  delay(50);
 }
