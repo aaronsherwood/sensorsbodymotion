@@ -16,12 +16,15 @@ void loop() {
   //the Passive Infra Red (PIR) sensor detects motion, not distance,
   //so digital read the sensor, if HIGH activate the LED,
   //if LOW, turn the LED off
-  if (digitalRead(sensorPin)==1) {
+
+  int sensorState = digitalRead(sensorPin);
+  
+  if (sensorState==1) {
     digitalWrite(ledPin, HIGH);
   } else {
     digitalWrite(ledPin, LOW);
   }
 
   //print the results to the serial monitor
-  Serial.println(digitalRead(sensorPin));
+  Serial.println(sensorState);
 }
