@@ -14,28 +14,32 @@ values gives higher readings) from pin 0 to GND. (see appendix of arduino notebo
 ----------------------------------------------------
 */
 
-int lightPin = 0;  //define a pin for Photo resistor
-int ledPin=11;     //define a pin for LED
+const int lightPin = A0;  //define a pin for Photo resistor
+const int buttonPin = 2;
 
 void setup()
 {
-    Serial.begin(9600);  //Begin serial communcation
-    pinMode( ledPin, OUTPUT );
+  Serial.begin(9600);  //Begin serial communcation
 }
 
 void loop()
 {
-//    Serial.println(analogRead(lightPin)); //Write the value of the photoresistor to the serial monitor.
-//    analogWrite(ledPin, analogRead(lightPin)/4);  //send the value to the ledPin. Depending on value of resistor 
-//                                                //you have  to divide the value. for example, 
-//                                                //with a 10k resistor divide the value by 2, for 100k resistor divide by 4.
-//   delay(10); //short delay for faster response to light.
-int val = analogRead(0);     // read analog input pin 0
-  Serial.print(1, DEC);    // print a '1', this character will be
-                            // used as a parsing character
-  Serial.print(val, DEC);  // prints the value read from the
-                             // sensor in analog pin 0
+  // read analog input pin 0
+  int val = analogRead(lightPin);    
+  int buttonState = digitalRead(buttonPin); 
+  
+  int outputValue = map(val, 800, 875, 0, 255);
+
+  // print a '1', this character will be
+  // used as a parsing character
+  Serial.print(1, DEC); 
+  // prints the value read from the
+  // button   
+  Serial.print(buttonState, DEC);
+  
   Serial.print(2, DEC); 
-  Serial.println(1, DEC);                         
-  delay(200);
+  // prints the value read from the
+  // sensor in analog pin 0   
+  Serial.println(constrain(outputValue, 0, 100), DEC);                     
+  delay(1);
 }

@@ -14,8 +14,9 @@ values gives higher readings) from pin 0 to GND. (see appendix of arduino notebo
 ----------------------------------------------------
 */
 
-int lightPin = 0;  //define a pin for Photo resistor
-int ledPin=11;     //define a pin for LED
+int lightPin = A0;  //define a pin for Photo resistor
+int ledPin = 9;     //define a pin for LED
+int smoothed = 0;
 
 void setup()
 {
@@ -27,8 +28,8 @@ void loop()
 {
     int val = analogRead(lightPin);
     Serial.println(val); //Write the value of the photoresistor to the serial monitor.
-    //send the value to the ledPin. Depending on value of resistor 
-    //you have  to divide the value. for example, 
-    //with a 10k resistor divide the value by 2, for 100k resistor divide by 4.
-    analogWrite(ledPin, val/2);  
+    int mapped = map(val, 740, 892, 255, 0);
+    int constrained = constrain(mapped, 0, 255);
+    analogWrite(ledPin, constrained); 
+    delay(1); 
 }

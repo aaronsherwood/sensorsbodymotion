@@ -37,9 +37,9 @@ void loop() {
     int blue;
     if (buttonState == HIGH ){
       //choose some random colors
-      red   = random(255);
-      green = random(255);
-      blue  = random(20, 128);
+      red   = random(256);
+      green = random(256);
+      blue  = 128;//random(256);
       
     // if button is not released
     } else {
@@ -50,8 +50,9 @@ void loop() {
     for(int i=0;i<NUMPIXELS;i++){
       // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
       pixels.setPixelColor(i, pixels.Color(red,green,blue)); 
-      pixels.show(); // This sends the updated pixel color to the hardware.
+       // This sends the updated pixel color to the hardware.
     }
+    pixels.show();
   }
   // remember what state the button is this frame
   pButtonState=buttonState;
