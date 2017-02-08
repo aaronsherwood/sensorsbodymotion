@@ -28,18 +28,19 @@ void loop()
   int val = analogRead(lightPin);    
   int buttonState = digitalRead(buttonPin); 
   
-  int outputValue = map(val, 800, 875, 0, 255);
+  int outputValue = map(val, 800, 875, 0, 255);  
 
-  // print a '1', this character will be
-  // used as a parsing character
-  Serial.print(1, DEC); 
-  // prints the value read from the
-  // button   
-  Serial.print(buttonState, DEC);
-  
-  Serial.print(2, DEC); 
-  // prints the value read from the
-  // sensor in analog pin 0   
-  Serial.println(constrain(outputValue, 0, 100), DEC);                     
+  sendToIsadora(1,constrain(outputValue, 0, 100));
+  sendToIsadora(2,buttonState);
+
   delay(1);
 }
+
+void sendToIsadora(int route, int value)
+{
+  Serial.print(route);
+  Serial.print('|');
+  Serial.print(value);
+  Serial.print(' ');
+}
+
