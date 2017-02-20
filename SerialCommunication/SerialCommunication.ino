@@ -20,6 +20,7 @@ const int buttonPin = 2;
 void setup()
 {
   Serial.begin(9600);  //Begin serial communcation
+  pinMode(buttonPin, INPUT);
 }
 
 void loop()
