@@ -1,16 +1,12 @@
 const int touchPin = 2;
-const int motorPin = 11;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(motorPin, OUTPUT);
 }
 
 void loop() {
   int capacitance = readCapacitivePin(touchPin);
   Serial.println(capacitance);
-
-  analogWrite(motorPin,map(capacitance, 2, 17, 0, 255));
 }
 
 
