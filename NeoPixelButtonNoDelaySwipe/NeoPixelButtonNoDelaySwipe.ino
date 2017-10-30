@@ -18,42 +18,56 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEOPIXELPIN, NEO_GRB + N
 const int buttonPin = 2;
 boolean switchOn = false;
 boolean pButtonState = false;
+int pixelCounter = 0;
+int red=0;
+int green=0;
+int blue=0;
+int frameCount = 0;
 
 void setup() {
   pinMode(buttonPin, INPUT);
   pixels.begin(); // This initializes the NeoPixel library.
+  red   = random(256);
+  green = random(256);
+  blue  = 128;//random(256);
 }
 
 void loop() {
 
   // see if the button is pressed
-  int buttonState = digitalRead(buttonPin);
+//  int buttonState = digitalRead(buttonPin);
+//
+//  // if the button state is different then last time, let's do something
+//  if (buttonState != pButtonState) {
+//    //if button pressed 
+//    
+//    if (buttonState == HIGH ){
+//      //choose some random colors
+//      red   = random(256);
+//      green = random(256);
+//      blue  = 128;//random(256);
+//      
+//    // if button is not released
+//    } else {
+//      red = green = blue = 0;
+//    }
+//   
+//      
+//  }
 
-  // if the button state is different then last time, let's do something
-  if (buttonState != pButtonState) {
-    //if button pressed 
-    int red;
-    int green;
-    int blue;
-    if (buttonState == HIGH ){
-      //choose some random colors
+    
+  
+    pixels.setPixelColor(pixelCounter, pixels.Color(red,green,blue)); 
+    pixels.show();
+    if (frameCount % 30 == 0){
       red   = random(256);
       green = random(256);
       blue  = 128;//random(256);
-      
-    // if button is not released
-    } else {
-      red = green = blue = 0;
+      pixelCounter++;
     }
-    //for loop!
-    //set all the pixels
-    for(int i=0;i<NUMPIXELS;i++){
-      // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-      pixels.setPixelColor(i, pixels.Color(red,green,blue)); 
-       // This sends the updated pixel color to the hardware.
-    }
-    pixels.show();
-  }
+
+    frameCount++;
+    
   // remember what state the button is this frame
-  pButtonState=buttonState;
+//  pButtonState=buttonState;
 }
