@@ -29,8 +29,8 @@ void loop()
   int val = analogRead(lightPin);    
   int buttonState = digitalRead(buttonPin); 
   
-  int outputValue = map(val, 800, 875, 0, 255);  
-
+  int outputValue = map(val, 300, 850, 0, 255);  
+//Serial.println(val);
   sendToIsadora(1,constrain(outputValue, 0, 100));
   sendToIsadora(2,buttonState);
 

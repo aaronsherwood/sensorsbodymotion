@@ -12,7 +12,7 @@
 //use pin 2 for the tilt switch
 const int tiltSwitch = 2;
 //use pin 9 for LED pin
-const int ledPin = 9;
+const int ledPin = 13;
 
 int ledState = HIGH;         // the current state of the output pin
 int buttonState;             // the current reading from the input pin
@@ -27,6 +27,7 @@ void setup() {
   //set pinMode
   pinMode(tiltSwitch, INPUT);
   pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -47,6 +48,7 @@ void loop() {
     // whatever the reading is at, it's been there for longer
     // than the debounce delay, so take it as the actual current state:
     buttonState = reading;
+    Serial.println(buttonState);
   }
   
   // set the LED using the state of the button:
