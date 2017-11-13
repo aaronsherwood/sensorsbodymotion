@@ -24,7 +24,7 @@ void draw() {
  
   for (int y=0; y<height; y++) {
     for (int x=0; x<width; x++) {
-      int loc = (video.width-x-1)+(y*width);
+      int loc = x+y*width;
       color pix=video.pixels[loc];
       color prevPix=prevFrame.pixels[loc];
       float r1=red(pix);
