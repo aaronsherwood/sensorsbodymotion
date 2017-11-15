@@ -6,7 +6,7 @@ PS3EyeP5 ps3eye;
 SyphonServer server;
 
 void settings() {
-  size(640,360, P3D);
+  size(640,480, P3D);
   PJOGL.profile=1;
 }
 
