@@ -28,8 +28,8 @@ void loop()
 {
     int val = analogRead(lightPin);
     Serial.println(val); //Write the value of the photoresistor to the serial monitor.
-    int mapped = map(val, 740, 892, 255, 0);
-    int constrained = constrain(mapped, 0, 255);
-    analogWrite(ledPin, constrained); 
-    delay(1); 
+//    int mapped = map(val, 740, 892, 255, 0);
+//    int constrained = constrain(mapped, 0, 255);
+//    analogWrite(ledPin, constrained); 
+//    delay(1); 
 }

@@ -2,11 +2,16 @@ const int touchPin = 2;
 
 void setup() {
   Serial.begin(9600);
+  pinMode(3, OUTPUT);
 }
 
 void loop() {
   int capacitance = readCapacitivePin(touchPin);
   Serial.println(capacitance);
+  if (capacitance > 3)
+    digitalWrite(3, HIGH);
+  else
+    digitalWrite(3, LOW);
 }
 
 
@@ -45,29 +50,63 @@ uint8_t readCapacitivePin(int pinToMeasure) {
   // decreases the number of hardware cycles between each read of the pin,
   // thus increasing sensitivity.
   uint8_t cycles = 17;
-       if (*pin & bitmask) { cycles =  0;}
-  else if (*pin & bitmask) { cycles =  1;}
-  else if (*pin & bitmask) { cycles =  2;}
-  else if (*pin & bitmask) { cycles =  3;}
-  else if (*pin & bitmask) { cycles =  4;}
-  else if (*pin & bitmask) { cycles =  5;}
-  else if (*pin & bitmask) { cycles =  6;}
-  else if (*pin & bitmask) { cycles =  7;}
-  else if (*pin & bitmask) { cycles =  8;}
-  else if (*pin & bitmask) { cycles =  9;}
-  else if (*pin & bitmask) { cycles = 10;}
-  else if (*pin & bitmask) { cycles = 11;}
-  else if (*pin & bitmask) { cycles = 12;}
-  else if (*pin & bitmask) { cycles = 13;}
-  else if (*pin & bitmask) { cycles = 14;}
-  else if (*pin & bitmask) { cycles = 15;}
-  else if (*pin & bitmask) { cycles = 16;}
+  if (*pin & bitmask) {
+    cycles =  0;
+  }
+  else if (*pin & bitmask) {
+    cycles =  1;
+  }
+  else if (*pin & bitmask) {
+    cycles =  2;
+  }
+  else if (*pin & bitmask) {
+    cycles =  3;
+  }
+  else if (*pin & bitmask) {
+    cycles =  4;
+  }
+  else if (*pin & bitmask) {
+    cycles =  5;
+  }
+  else if (*pin & bitmask) {
+    cycles =  6;
+  }
+  else if (*pin & bitmask) {
+    cycles =  7;
+  }
+  else if (*pin & bitmask) {
+    cycles =  8;
+  }
+  else if (*pin & bitmask) {
+    cycles =  9;
+  }
+  else if (*pin & bitmask) {
+    cycles = 10;
+  }
+  else if (*pin & bitmask) {
+    cycles = 11;
+  }
+  else if (*pin & bitmask) {
+    cycles = 12;
+  }
+  else if (*pin & bitmask) {
+    cycles = 13;
+  }
+  else if (*pin & bitmask) {
+    cycles = 14;
+  }
+  else if (*pin & bitmask) {
+    cycles = 15;
+  }
+  else if (*pin & bitmask) {
+    cycles = 16;
+  }
 
   // End of timing-critical section; turn interrupts back on if they were on before, or leave them off if they were off before
   SREG = SREG_old;
 
   // Discharge the pin again by setting it low and output
-  //  It's important to leave the pins low if you want to 
+  //  It's important to leave the pins low if you want to
   //  be able to touch more than 1 sensor at a time - if
   //  the sensor is left pulled high, when you touch
   //  two sensors, your body will transfer the charge between
