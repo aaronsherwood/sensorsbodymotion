@@ -23,14 +23,14 @@ void loop()
   
   int val = analogRead(lightPin);
 //  Serial.println(val);
-  if (val > 355 && trigger == false) {
+  if (val > 400 && trigger == false) {
     trigger = true;
     timer = 1000;
 //    Serial.println(trigger);
    sendToIsadoraXbee(1, 1);
   }
   if (trigger == true) {
-    if (timer <= 0 && val < 355) {
+    if (timer <= 0 && val < 400) {
       trigger = false;
 //      Serial.println(trigger);
       sendToIsadoraXbee(1, 0);

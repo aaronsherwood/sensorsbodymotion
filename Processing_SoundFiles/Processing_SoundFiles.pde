@@ -1,11 +1,15 @@
+//import sound library
 import processing.sound.*;
 int trackAmount = 5;
 
+//array to holds sound files
 SoundFile[] soundfiles = new SoundFile[trackAmount];
+
+//array to hold the volumes for each track
 float[] volumes = new float[trackAmount];
+//array to hold the volume destinations, to smoothly fade in and out
 float[] volumeDestinations = new float[trackAmount];
 
-//No need to edit:
 PFont myFont, myBigFont;
 final int myHeight = 400;
 final int myWidth = 400;
@@ -24,6 +28,9 @@ void setup() {
 
   myFont = createFont("Arial", 14);
   myBigFont = createFont("Arial", 80);
+  //load the sound files, will load the first 5 files
+  //change the names of the files to load others
+  //or load them individually
   for (int i=0; i<soundfiles.length; i++) {
     String name = "soundfile";
     name+=str(i);
@@ -61,7 +68,7 @@ void draw() {
   }
 }
 
-//see what section the of the screen the mouse is
+//see what section the of the screen the mouse is in
 //set the message and play the track
 void mouseMoved(){
   int track = 0;
@@ -99,8 +106,7 @@ void drawText() {
 }
 
 
-float generateColor(int which) {
-  float f = 100; 
+float generateColor(int which) { 
   int i = which;
   if (i <= 0) {
     return 100;
@@ -111,12 +117,14 @@ float generateColor(int which) {
 
 void changeTracks(int which) {
   //playing only one sound at a time
+  //but you can easily mkae files overlap if you want
   for (int i=0; i<soundfiles.length; i++) {
     volumeDestinations[i]=0;
   }
     volumeDestinations[which-1]=1;
 }
 
+//smoothing for fading in and out
 float smoothing(float current, float destination) {
   current += (destination-current)*.5;
   return current;
