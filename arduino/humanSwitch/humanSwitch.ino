@@ -10,6 +10,6 @@ void loop() {
   int touchAmount = analogRead(humanPin);
   delay(1);
   if (touchAmount > 0){
-    Serial.println(touchAmount);
+    Serial.print(touchAmount);
   }   
 }
