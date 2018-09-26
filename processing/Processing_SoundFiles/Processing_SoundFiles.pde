@@ -115,13 +115,13 @@ float generateColor(int which) {
   }
 }
 
-void changeTracks(int which) {
+void changeTracks(int whichTrack) {
   //playing only one sound at a time
   //but you can easily mkae files overlap if you want
   for (int i=0; i<soundfiles.length; i++) {
     volumeDestinations[i]=0;
   }
-    volumeDestinations[which-1]=1;
+    volumeDestinations[whichTrack-1]=1;
 }
 
 //smoothing for fading in and out
