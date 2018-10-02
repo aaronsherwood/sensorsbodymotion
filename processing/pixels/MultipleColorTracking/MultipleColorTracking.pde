@@ -149,12 +149,12 @@ void detectColors() {
 
   // <7> Find contours in our range image.
   //     Passing 'true' sorts them by descending area.
-  if (outputs[0] != null) {
+  //if (outputs[0] != null) {
 
-    opencv.loadImage(outputs[0]);
+  //  opencv.loadImage(outputs[0]);
 
-    contours = opencv.findContours(true, true);
-  }
+  //  contours = opencv.findContours(true, true);
+  //}
 }
 
 void displayContoursBoundingBoxes() {
