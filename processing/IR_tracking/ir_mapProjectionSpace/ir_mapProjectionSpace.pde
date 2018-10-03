@@ -9,6 +9,12 @@ import processing.video.*;
 import com.thomasdiewald.ps3eye.PS3EyeP5;
 import java.awt.Rectangle;
 PS3EyeP5 ps3eye;
+import oscP5.*;
+import netP5.*;
+float x, y;
+
+OscP5 oscP5;
+NetAddress dest;
 
 OpenCV opencv;
 JSONObject json;
@@ -29,7 +35,10 @@ void setup() {
   ps3eye = PS3EyeP5.getDevice(this);
   ps3eye.start();
   opencv = new OpenCV(this, 640, 480);
-  
+  oscP5 = new OscP5(this, 1234);
+  dest = new NetAddress("127.0.0.1", 12000);
+  x = 640/2;
+  y = 480/2;
 }
 
 void draw() {
@@ -76,6 +85,7 @@ void draw() {
     }
     text(str, 20, 60);
   }
+  sendOsc();
 }
 
 void mousePressed() {
@@ -107,7 +117,12 @@ void keyPressed() {
   }
 }
 
-
+void sendOsc() {
+  OscMessage msg = new OscMessage("/opticalFlow");
+  msg.add(x); 
+  msg.add(y);
+  oscP5.send(msg, dest);
+}
 
 void loadData() {
   json = loadJSONObject("coords.json");

@@ -26,7 +26,9 @@ void cv() {
     fill(255, 0, 0, 150);
     strokeWeight(2);
     rect(r.x, r.y, r.width, r.height);
-    ellipse((float)r.getCenterX(), (float)r.getCenterY(), 5, 5);
+    x = (float)r.getCenterX();
+    y = (float)r.getCenterY();
+    ellipse(x, y, 5, 5);
   }
   popMatrix();
 }

@@ -81,8 +81,8 @@ void setup(){
 void draw(){
   // floating towards mouse position
   //if (mouseX != 0 || mouseY != 0) {
-    centerX += oscX*2;//(mouseX-centerX) * 0.01;
-    centerY += oscY*2;//(mouseY-centerY) * 0.01;
+    centerX += (oscX-centerX) * 0.01;
+    centerY += (oscY-centerY) * 0.01;
   //}
 
   // calculate new points
@@ -174,7 +174,7 @@ void oscEvent(OscMessage theOscMessage) {
   print(" message 1: "+theOscMessage.get(0).floatValue());
   print(" message 2: "+theOscMessage.get(1).floatValue());
   println(" typetag: "+theOscMessage.typetag());
-  oscX = theOscMessage.get(0).floatValue();
-  oscY = theOscMessage.get(1).floatValue();
+  oscX = map(theOscMessage.get(0).floatValue(),0, 640, 0, width);
+  oscY = map(theOscMessage.get(1).floatValue(),0, 480, 0, height);
 
 }
