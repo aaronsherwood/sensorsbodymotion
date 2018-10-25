@@ -1,22 +1,26 @@
+int blobSizeThreshold = 80;
 void cv() {
   opencv.loadImage(ps3eye.getFrame());
-  opencv.threshold(30);
+  
+  opencv.updateBackground();
+  opencv.threshold(70);
   opencv.setGray(warpPerspective(vectors, videoWidth, videoHeight));
-  opencv.toPImage(warpPerspective(vectors, videoWidth, videoHeight), warped);
-  opencv.contrast(30);
+  
+  opencv.contrast(100);
   opencv.dilate();
   opencv.erode();
-  opencv.blur(50);
-  //image(opencv.getSnapshot(), 0, 0); 
+  opencv.blur(80);
+  
+  
   noFill();
   stroke(255, 0, 0);
   strokeWeight(3);
   pushMatrix();
   translate(videoWidth, 0);
-  //image(warped, 0, 0);
+  image(opencv.getSnapshot(), 0, 0); 
 
   for (Contour contour : opencv.findContours()) {
-    
+
     Rectangle r = contour.getBoundingBox();
     if (//(contour.area() > 0.9 * src.width * src.height) ||
       (r.width < blobSizeThreshold || r.height < blobSizeThreshold))

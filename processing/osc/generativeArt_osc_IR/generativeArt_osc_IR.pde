@@ -81,8 +81,8 @@ void setup(){
 void draw(){
   // floating towards mouse position
   //if (mouseX != 0 || mouseY != 0) {
-    centerX += (oscX-centerX) * 0.01;
-    centerY += (oscY-centerY) * 0.01;
+    centerX += (oscX-centerX) * 0.1;
+    centerY += (oscY-centerY) * 0.1;
   //}
 
   // calculate new points

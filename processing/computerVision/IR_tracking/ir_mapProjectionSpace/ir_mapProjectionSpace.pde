@@ -25,7 +25,7 @@ Mat transform;
 ArrayList<PVector> vectors = new ArrayList<PVector>();
 int pointCounter = 0;
 boolean recording=false;
-int blobSizeThreshold = 60;
+
 
 void setup() {
   size(1280, 480);
@@ -39,12 +39,13 @@ void setup() {
   dest = new NetAddress("127.0.0.1", 12000);
   x = 640/2;
   y = 480/2;
+  opencv.startBackgroundSubtraction(50, 3, 0.5);
 }
 
 void draw() {
   background(0);
   image(ps3eye.getFrame(), 0, 0);  
-  
+
 
 
 
@@ -118,7 +119,7 @@ void keyPressed() {
 }
 
 void sendOsc() {
-  OscMessage msg = new OscMessage("/opticalFlow");
+  OscMessage msg = new OscMessage("/irMapped");
   msg.add(x); 
   msg.add(y);
   oscP5.send(msg, dest);
