@@ -14,11 +14,6 @@
  * limitations under the License.
  * =============================================================================
  */
-// import * as posenet from '@tensorflow-models/posenet';
-// import dat from 'dat.gui';
-// import Stats from 'stats.js';
-
-// import {drawBoundingBox, drawKeypoints, drawSkeleton} from './demo_util';
 
 const videoWidth = 600;
 const videoHeight = 500;

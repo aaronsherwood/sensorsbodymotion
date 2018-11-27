@@ -14,11 +14,7 @@
  * limitations under the License.
  * =============================================================================
  */
-// import * as personSegmentation from '@tensorflow-models/body-pix';
-// import dat from 'dat.gui';
-// import Stats from 'stats.js';
 
-// import * as partColorScales from './part_color_scales';
 var partColorScales = [];
 partColorScales.push(rainbow);
 partColorScales.push(warm);
