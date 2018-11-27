@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PoseNet - Camera Feed Demo</title>
+  <style>
+    div.osclist {
+      position:fixed;
+      top:10px;
+      left: 650px;
+      width:300px;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: black;
+    }
+
+    .footer-text {
+      max-width: 600px;
+      text-align: center;
+      margin: auto;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .footer-text,
+      .dg {
+        display: none;
+      }
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div id="info" style='display:none'>
+  </div>
+  <div id="loading">
+    Loading the model...
+  </div>
+
+  <div id='main' style='display:none'>
+    <video id="video" playsinline style=" -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        display: none;
+        ">
+        </video>
+    <canvas id="output" />
+
+  </div>
+
+  <div class="osclist">
+    To send OSC click the bottom button on the left. This will send out 17 x & y locations for each keypoint (for a total of 34 numbers). The locations will come in a 600x500 pixel range. The parts in order are:
+    <br><br>0-1 nose
+    <br>2-3 leftEye
+    <br>4-5 rightEye
+    <br>6-7 leftEar
+    <br>8-9 rightEar
+    <br>10-11 leftShoulder
+    <br>12-13 rightShoulder
+    <br>14-15 leftElbow
+    <br>16-17 rightElbow
+    <br>18-19 leftWrist
+    <br>20-21 rightWrist
+    <br>22-23 leftHip
+    <br>24-25 rightHip
+    <br>26-27 leftKnee
+    <br>28-29 rightKnee
+    <br>30-31 leftAnkle
+    <br>32-33 rightAnkle
+  </div>
+  <div class="footer">
+    <div class="footer-text">
+      <p>
+        PoseNet runs with either a <strong>single-pose</strong> or <strong>multi-pose</strong> detection algorithm. The single person pose detector is faster and more accurate but requires only one subject present in the image.
+        <br>
+        <br> The <strong>output stride</strong> and <strong>image scale factor</strong> have the largest effects on accuracy/speed. A <i>higher</i> output stride results in lower accuracy but higher speed. A <i>higher</i> image scale factor results in
+        higher accuracy but lower speed.
+
+      </p>
+    </div>
+  </div>
+  <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+  <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
+  <script type="text/javascript" src="dat.gui.min.js"></script>
+  <script src="stats.min.js"></script>
+  <script src="demo_util.js"></script>
+  <script src="osc.js"></script>
+  <script src="camera.js"></script>
+</body>
+
+</html>

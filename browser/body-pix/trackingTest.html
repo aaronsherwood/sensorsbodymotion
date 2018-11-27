@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>tracking.js - first tracking</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/tracking-min.js"></script>
+</head>
+
+<body>
+
+  <video id="video" playsinline style=" -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  display: none;
+  ">
+  </video>
+  <p>Tracking Cyan</p>
+  <canvas id="output" width="640" height="480" />
+  <script>
+    const videoWidth = 640;
+    const videoHeight = 480;
+    const vid = document.getElementById('video');
+    var canvas = document.getElementById('output');
+    var context = canvas.getContext('2d');
+
+    async function setupCamera() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error(
+          'Browser API navigator.mediaDevices.getUserMedia not available');
+      }
+
+      const stream = await navigator.mediaDevices.getUserMedia({
+        'audio': false,
+        'video': {
+          facingMode: 'user',
+          width: videoWidth,
+          height: videoHeight,
+        },
+      });
+      video.srcObject = stream;
+
+      return new Promise((resolve) => {
+        video.onloadedmetadata = () => {
+          resolve(video);
+        };
+      });
+    }
+
+    async function loadVideo() {
+      const video = await setupCamera();
+      video.play();
+      return video;
+    }
+
+    loadVideo();
+
+    var track = function() {
+      var colors = new tracking.ColorTracker(['cyan']);
+      colors.on('track', function(event) {
+        if (event.data.length === 0) {} else {
+          context.beginPath();
+          context.lineWidth = 6;
+          context.strokeStyle = 'yellow';
+          event.data.forEach(function(rect) {
+            context.rect(rect.x, rect.y, rect.width, rect.height);
+            context.stroke()
+          });
+        }
+      });
+      tracking.track('#output', colors);
+    }
+
+    var timerCallback = function timerCallback() {
+      context.drawImage(vid, 0, 0, 640, 480);
+      track();
+      let self = this;
+      setTimeout(function() {
+        self.timerCallback();
+      }, 0);
+    }
+    timerCallback();
+  </script>
+</body>
+
+</html>
