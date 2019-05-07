@@ -1,5 +1,13 @@
 #include <SoftwareSerial.h>
 SoftwareSerial XBee(2, 3);
+/*
+ * Wiring for IR range finder in lab is:
+ * Black 5V
+ * Red GND
+ * Blue GND
+ * Yellow 5V
+ * Green A0 (data)
+ */
 
 const int lightPin = A0;  //define a pin for infred
 boolean trigger = false;
