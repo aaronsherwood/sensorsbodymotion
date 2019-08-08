@@ -7,9 +7,6 @@
 [submodule "oF_addons/ofxGrt"]
 	path = oF_addons/ofxGrt
 	url = https://github.com/nickgillian/ofxGrt.git
-[submodule "oF_addons/ofxGVF"]
-	path = oF_addons/ofxGVF
-	url = https://github.com/bcaramiaux/ofxGVF.git
 [submodule "oF_addons/ofxProjectionMapping"]
 	path = oF_addons/ofxProjectionMapping
 	url = https://github.com/genekogan/ofxProjectionMapping.git
