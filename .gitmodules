@@ -1,3 +1,30 @@
 [submodule "oF_addons/ofxCv"]
 	path = oF_addons/ofxCv
 	url = https://github.com/kylemcdonald/ofxCv.git
+[submodule "Code-Package-p5.js"]
+	path = Code-Package-p5.js
+	url = https://github.com/generative-design/Code-Package-p5.js.git
+[submodule "oF_addons/ofxGrt"]
+	path = oF_addons/ofxGrt
+	url = https://github.com/nickgillian/ofxGrt.git
+[submodule "oF_addons/ofxGVF"]
+	path = oF_addons/ofxGVF
+	url = https://github.com/bcaramiaux/ofxGVF.git
+[submodule "oF_addons/ofxProjectionMapping"]
+	path = oF_addons/ofxProjectionMapping
+	url = https://github.com/genekogan/ofxProjectionMapping.git
+[submodule "oF_addons/ofxVideoMapping"]
+	path = oF_addons/ofxVideoMapping
+	url = https://github.com/camilosw/ofxVideoMapping.git
+[submodule "oF_addons/ofxKinectProjectorToolkit"]
+	path = oF_addons/ofxKinectProjectorToolkit
+	url = https://github.com/genekogan/ofxKinectProjectorToolkit.git
+[submodule "oF_addons/ofxLearn"]
+	path = oF_addons/ofxLearn
+	url = https://github.com/genekogan/ofxLearn.git
+[submodule "oF_addons/ofxOrbbecAstra"]
+	path = oF_addons/ofxOrbbecAstra
+	url = https://github.com/mattfelsen/ofxOrbbecAstra
+[submodule "oF_addons/ofxRealSense2"]
+	path = oF_addons/ofxRealSense2
+	url = https://github.com/mizumasa/ofxRealSense2.git
