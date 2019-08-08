@@ -1,0 +1,7 @@
+<GVF_OSC>
+	<ip>localhost</ip>
+	<port>12000</port>
+	<address>/wek/outputs</address>
+    <incomingPort>6448</incomingPort>
+    <incomingAddress>/wek/inputs</incomingAddress>
+</GVF_OSC>
