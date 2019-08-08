@@ -43,6 +43,3 @@
 [submodule "oF_addons/ofxPS3EyeGrabber"]
 	path = oF_addons/ofxPS3EyeGrabber
 	url = https://github.com/bakercp/ofxPS3EyeGrabber.git
-[submodule "ofxGVF"]
-	path = ofxGVF
-	url = https://github.com/aaronsherwood/ofxGVF.git
