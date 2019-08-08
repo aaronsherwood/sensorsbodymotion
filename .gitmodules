@@ -46,3 +46,6 @@
 [submodule "oF_addons/ofxGVF"]
 	path = oF_addons/ofxGVF
 	url = https://github.com/aaronsherwood/ofxGVF.git
+[submodule "wekinator_examples"]
+	path = wekinator_examples
+	url = https://github.com/fiebrink1/wekinator_examples.git
