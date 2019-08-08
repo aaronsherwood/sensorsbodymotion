@@ -13,7 +13,7 @@ If working off any example, copy that folder and paste it in the __place_your_wo
 
 To get new examples: `git pull`
 
-If you're unsure if you've been working in samples you can Stash everything before pulling:
+If you're unsure if you've been working in examples directly in the repo you can stash everything before pulling:
 * `git stash`
 * `git pull`
 
@@ -23,7 +23,7 @@ To see what's been stashed: `git stash list`
 
 To remove all stashes: `git stash clear`
 
-To reset everything to be jsut like the repo online:
+To reset everything to be just like the repo online:
 * `git fetch origin`
 * `git reset --hard origin/master`
 
