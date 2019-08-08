@@ -28,3 +28,21 @@
 [submodule "oF_addons/ofxRealSense2"]
 	path = oF_addons/ofxRealSense2
 	url = https://github.com/mizumasa/ofxRealSense2.git
+[submodule "oF_addons/ofxCcv"]
+	path = oF_addons/ofxCcv
+	url = https://github.com/kylemcdonald/ofxCcv.git
+[submodule "oF_addons/ofxFaceTracker"]
+	path = oF_addons/ofxFaceTracker
+	url = https://github.com/kylemcdonald/ofxFaceTracker.git
+[submodule "oF_addons/ofxTimeline"]
+	path = oF_addons/ofxTimeline
+	url = https://github.com/YCAMInterlab/ofxTimeline.git
+[submodule "oF_addons/ofxPDSP"]
+	path = oF_addons/ofxPDSP
+	url = https://github.com/npisanti/ofxPDSP.git
+[submodule "oF_addons/ofxLibwebsockets"]
+	path = oF_addons/ofxLibwebsockets
+	url = https://github.com/robotconscience/ofxLibwebsockets.git
+[submodule "oF_addons/ofxPS3EyeGrabber"]
+	path = oF_addons/ofxPS3EyeGrabber
+	url = https://github.com/bakercp/ofxPS3EyeGrabber.git
