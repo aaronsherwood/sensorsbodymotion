@@ -12,7 +12,7 @@ Grab submodules:
 * `git submodule init`
 * `git submodule update`
 
-#### Working with repo on your computer
+#### Working with the repo on your computer
 If working off any example, copy that folder and paste it in the __place_your_work_here__ folder to mitigate merge conflicts when new examples are added or old examples are updated. Work only in copies you've put in this folder.
 
 To get new examples: `git pull`
