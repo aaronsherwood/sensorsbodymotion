@@ -1,14 +1,18 @@
 # Sensors, Body, & Motion
-Code examples for NYU Abu Dhabi [class](http://sbm.nyuad.im/weekly-schedule/).
+Code examples for the NYU Abu Dhabi [class](http://sbm.nyuad.im/weekly-schedule/).
 
 ## Usage
 
-Clone repo to your computer: `git clone https://github.com/aaronsherwood/sensorsbodymotion.git`
+### On the command line:
+
+#### Initialization (you only need to do these steps once)
+Clone the repo to your computer: `git clone https://github.com/aaronsherwood/sensorsbodymotion.git`
 
 Grab submodules:
 * `git submodule init`
 * `git submodule update`
 
+#### Working with repo on your computer
 If working off any example, copy that folder and paste it in the __place_your_work_here__ folder to mitigate merge conflicts when new examples are added or old examples are updated. Work only in copies you've put in this folder.
 
 To get new examples: `git pull`
