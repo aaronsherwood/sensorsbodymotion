@@ -49,3 +49,33 @@
 [submodule "wekinator_examples"]
 	path = wekinator_examples
 	url = https://github.com/fiebrink1/wekinator_examples.git
+[submodule "oF_addons/Maximilian"]
+	path = oF_addons/Maximilian
+	url = https://github.com/micknoise/Maximilian.git
+[submodule "openFrameworks/ml4a-ofx"]
+	path = openFrameworks/ml4a-ofx
+	url = https://github.com/ml4a/ml4a-ofx.git
+[submodule "oF_addons/ofxAbletonLive"]
+	path = oF_addons/ofxAbletonLive
+	url = https://github.com/genekogan/ofxAbletonLive.git
+[submodule "oF_addons/ofxAssignment"]
+	path = oF_addons/ofxAssignment
+	url = https://github.com/kylemcdonald/ofxAssignment.git
+[submodule "oF_addons/ofxAudioUnit"]
+	path = oF_addons/ofxAudioUnit
+	url = https://github.com/admsyn/ofxAudioUnit.git
+[submodule "oF_addons/ofxDarknet"]
+	path = oF_addons/ofxDarknet
+	url = https://github.com/schwittlick/ofxDarknet.git
+[submodule "oF_addons/ofxFaceTracker2"]
+	path = oF_addons/ofxFaceTracker2
+	url = https://github.com/HalfdanJ/ofxFaceTracker2.git
+[submodule "oF_addons/ofxJSON"]
+	path = oF_addons/ofxJSON
+	url = https://github.com/jeffcrouse/ofxJSON.git
+[submodule "oF_addons/ofxLeapMotion2"]
+	path = oF_addons/ofxLeapMotion2
+	url = https://github.com/genekogan/ofxLeapMotion2.git
+[submodule "oF_addons/ofxOpenNI"]
+	path = oF_addons/ofxOpenNI
+	url = https://github.com/gameoverhack/ofxOpenNI.git
