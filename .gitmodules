@@ -1,0 +1,3 @@
+[submodule "oF_addons/ofxCv"]
+	path = oF_addons/ofxCv
+	url = https://github.com/kylemcdonald/ofxCv.git
