@@ -79,3 +79,12 @@
 [submodule "oF_addons/ofxOpenNI"]
 	path = oF_addons/ofxOpenNI
 	url = https://github.com/gameoverhack/ofxOpenNI.git
+[submodule "oF_addons/ofxScreenGrab"]
+	path = oF_addons/ofxScreenGrab
+	url = https://github.com/genekogan/ofxScreenGrab.git
+[submodule "oF_addons/ofxTemplateMatching"]
+	path = oF_addons/ofxTemplateMatching
+	url = https://github.com/genekogan/ofxTemplateMatching.git
+[submodule "oF_addons/ofxTSNE"]
+	path = oF_addons/ofxTSNE
+	url = https://github.com/genekogan/ofxTSNE
