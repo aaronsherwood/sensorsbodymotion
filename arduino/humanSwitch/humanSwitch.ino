@@ -1,4 +1,4 @@
-//HINT need pulldown resistor
+//HINT need voltage divider resistor
 
 const int humanPin = A0;
 
@@ -10,6 +10,6 @@ void loop() {
   int touchAmount = analogRead(humanPin);
   delay(1);
   if (touchAmount > 0){
-    Serial.print(touchAmount);
+    Serial.println(touchAmount);
   }   
 }
