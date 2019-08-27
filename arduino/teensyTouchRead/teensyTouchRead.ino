@@ -1,10 +1,10 @@
 void setup() {
-  // put your setup code here, to run once:
+  // start the serial communication
   Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // easy, just touchRead(pin)
   int data = touchRead(23);
   Serial.println(data);
 }
