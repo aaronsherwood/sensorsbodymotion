@@ -88,3 +88,9 @@
 [submodule "oF_addons/ofxTSNE"]
 	path = oF_addons/ofxTSNE
 	url = https://github.com/genekogan/ofxTSNE
+[submodule "oF_addons/ofxSerial"]
+	path = oF_addons/ofxSerial
+	url = https://github.com/bakercp/ofxSerial.git
+[submodule "oF_addons/ofxIO"]
+	path = oF_addons/ofxIO
+	url = https://github.com/bakercp/ofxIO.git
