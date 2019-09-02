@@ -94,3 +94,6 @@
 [submodule "oF_addons/ofxIO"]
 	path = oF_addons/ofxIO
 	url = https://github.com/bakercp/ofxIO.git
+[submodule "TeensyTransfer"]
+	path = TeensyTransfer
+	url = https://github.com/FrankBoesing/TeensyTransfer.git
