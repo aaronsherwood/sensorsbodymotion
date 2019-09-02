@@ -88,3 +88,12 @@
 [submodule "oF_addons/ofxTSNE"]
 	path = oF_addons/ofxTSNE
 	url = https://github.com/genekogan/ofxTSNE
+[submodule "arduino/PropShieldAudio/Libraries/Arduino-Teensy-Codec-lib"]
+	path = arduino/PropShieldAudio/Libraries/Arduino-Teensy-Codec-lib
+	url = https://github.com/FrankBoesing/Arduino-Teensy-Codec-lib.git
+[submodule "arduino/PropShieldAudio/Libraries/TeensyTransfer"]
+	path = arduino/PropShieldAudio/Libraries/TeensyTransfer
+	url = https://github.com/FrankBoesing/TeensyTransfer.git
+[submodule "arduino/PropShieldAudio/Libraries/SerialFlash"]
+	path = arduino/PropShieldAudio/Libraries/SerialFlash
+	url = https://github.com/PaulStoffregen/SerialFlash.git
