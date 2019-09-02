@@ -16,3 +16,5 @@
 ### Play a File
 * Load the MP3Player.ino sketch onto the Teensy
 * *Make sure all pins are soldered onto Prop Shield, including the rear row of 7 pins (this includes the necessary DAC)*
+
+![Speaker Hookup](https://raw.githubusercontent.com/aaronsherwood/sensorsbodymotion/master/arduino/PropShieldAudio/IMG_3252.JPG)
