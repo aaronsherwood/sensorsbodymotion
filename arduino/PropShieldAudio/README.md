@@ -9,7 +9,7 @@
 * Upload the teensytransfertool.ino sketch to the Teensy
 * In your Arduino libraries folder navigate to the TeensyTransfer/extras folder
 * Unzip the appropriate file for you OS (The gz - file contains the Linux-version, the *.zip the Windows-version, The .mac.zip file contains the Mac OS version)
-* On the command line navigate to the TeensyTransfer/extras directory (same as above, in your Arduino libraris folder)
+* On the command line navigate to the TeensyTransfer/extras directory (same as above, in your Arduino libraries folder)
 * Run `./teensytransfer <path_to_file>` to upload a file
 * After upload switch USB Type back to Serial
 
