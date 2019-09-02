@@ -88,12 +88,9 @@
 [submodule "oF_addons/ofxTSNE"]
 	path = oF_addons/ofxTSNE
 	url = https://github.com/genekogan/ofxTSNE
-[submodule "oF_addons/ofxSerial"]
-	path = oF_addons/ofxSerial
-	url = https://github.com/bakercp/ofxSerial.git
-[submodule "oF_addons/ofxIO"]
-	path = oF_addons/ofxIO
-	url = https://github.com/bakercp/ofxIO.git
 [submodule "TeensyTransfer"]
 	path = TeensyTransfer
 	url = https://github.com/FrankBoesing/TeensyTransfer.git
+[submodule "Arduino-Teensy-Codec-lib"]
+	path = Arduino-Teensy-Codec-lib
+	url = https://github.com/FrankBoesing/Arduino-Teensy-Codec-lib
