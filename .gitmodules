@@ -89,8 +89,8 @@
 	path = oF_addons/ofxTSNE
 	url = https://github.com/genekogan/ofxTSNE
 [submodule "TeensyTransfer"]
-	path = TeensyTransfer
+	path = arduino/PropShieldAudio/Libraries/TeensyTransfer
 	url = https://github.com/FrankBoesing/TeensyTransfer.git
 [submodule "Arduino-Teensy-Codec-lib"]
-	path = Arduino-Teensy-Codec-lib
+	path = arduino/PropShieldAudio/Libraries/Arduino-Teensy-Codec-lib
 	url = https://github.com/FrankBoesing/Arduino-Teensy-Codec-lib
