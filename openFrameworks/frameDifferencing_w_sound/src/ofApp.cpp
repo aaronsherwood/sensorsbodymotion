@@ -14,6 +14,7 @@ void ofApp::setup() {
     // so they have the same size and type as cam
     imitate(previous, cam);
     imitate(diff, cam);
+    imitate(flipped, cam);
     
     // set the threshold value
     thresholdValue = 128;
@@ -35,12 +36,15 @@ void ofApp::setup() {
 void ofApp::update() {
     cam.update();
     if(cam.isFrameNew()) {
+        // ofxcv method to flip an image
+        // 0 flips vertically, 1 flips horizontally
+        flip(cam, flipped, 1);
         // take the absolute difference of prev and cam and save it inside diff
-        absdiff(cam, previous, diff);
+        absdiff(flipped, previous, diff);
         diff.update();
         
         // like ofSetPixels, but more concise and cross-toolkit
-        copy(cam, previous);
+        copy(flipped, previous);
         
         // convert the differenced image to grayscale and threshold
         convertColor(diff, thresh, CV_RGB2GRAY);
@@ -107,7 +111,7 @@ void ofApp::draw() {
     ofTranslate(320, 0);
     ofSetColor(255);
     diff.draw(0, 0);
-    string dif = "Differenced Video";
+    string dif = "Differenced & Flipped Video";
     ofSetColor(255, 200);
     ofFill();
     font.drawString(dif, 20, 20);

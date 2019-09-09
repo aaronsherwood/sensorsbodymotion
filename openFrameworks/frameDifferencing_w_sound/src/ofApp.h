@@ -11,7 +11,7 @@ public:
     
     ofVideoGrabber cam;
     ofPixels previous;
-    ofImage thresh, diff;
+    ofImage flipped, thresh, diff;
     cv::Mat columnMean;
     ofSoundPlayer  sound1, sound2;
     float thresholdValue;
