@@ -97,3 +97,6 @@
 [submodule "arduino/PropShieldAudio/Libraries/SerialFlash"]
 	path = arduino/PropShieldAudio/Libraries/SerialFlash
 	url = https://github.com/PaulStoffregen/SerialFlash.git
+[submodule "oF_addons/ofxBox2d"]
+	path = oF_addons/ofxBox2d
+	url = https://github.com/vanderlin/ofxBox2d.git
