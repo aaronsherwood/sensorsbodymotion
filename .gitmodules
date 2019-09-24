@@ -100,3 +100,15 @@
 [submodule "oF_addons/ofxBox2d"]
 	path = oF_addons/ofxBox2d
 	url = https://github.com/vanderlin/ofxBox2d.git
+[submodule "oF_addons/ofxPostGlitch"]
+	path = oF_addons/ofxPostGlitch
+	url = https://github.com/aaronsherwood/ofxPostGlitch.git
+[submodule "oF_addons/ofxVideoRecorder"]
+	path = oF_addons/ofxVideoRecorder
+	url = https://github.com/aaronsherwood/ofxVideoRecorder.git
+[submodule "oF_addons/ofxRSSDK"]
+	path = oF_addons/ofxRSSDK
+	url = https://github.com/aaronsherwood/ofxRSSDK
+[submodule "oF_addons/ofxGuiExtended"]
+	path = oF_addons/ofxGuiExtended
+	url = https://github.com/maybites/ofxGuiExtended
