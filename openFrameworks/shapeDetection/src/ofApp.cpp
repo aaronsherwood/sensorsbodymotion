@@ -1,6 +1,8 @@
 #include "ofApp.h"
 
 /*
+ Originally from here: https://gist.github.com/kashimAstro/3316d4b7072ca9a63bb5761c1f297bae
+ 
  INSTRUCTIONS
  Draw in the window to test shapes
  Click space bar to erase shape
