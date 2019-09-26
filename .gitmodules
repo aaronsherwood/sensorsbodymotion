@@ -112,3 +112,6 @@
 [submodule "oF_addons/ofxGuiExtended"]
 	path = oF_addons/ofxGuiExtended
 	url = https://github.com/maybites/ofxGuiExtended
+[submodule "oF_addons/ofxAruco"]
+	path = oF_addons/ofxAruco
+	url = https://github.com/arturoc/ofxAruco
