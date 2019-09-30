@@ -118,3 +118,6 @@
 [submodule "oF_addons/ofxSyphon"]
 	path = oF_addons/ofxSyphon
 	url = https://github.com/astellato/ofxSyphon.git
+[submodule "oF_addons/ofxShadertoy"]
+	path = oF_addons/ofxShadertoy
+	url = https://github.com/aaronsherwood/ofxShadertoy
