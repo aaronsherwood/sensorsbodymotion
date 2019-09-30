@@ -115,3 +115,6 @@
 [submodule "oF_addons/ofxAruco"]
 	path = oF_addons/ofxAruco
 	url = https://github.com/arturoc/ofxAruco
+[submodule "oF_addons/ofxSyphon"]
+	path = oF_addons/ofxSyphon
+	url = https://github.com/astellato/ofxSyphon.git
