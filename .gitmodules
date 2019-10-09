@@ -19,9 +19,6 @@
 [submodule "oF_addons/ofxLearn"]
 	path = oF_addons/ofxLearn
 	url = https://github.com/genekogan/ofxLearn.git
-[submodule "oF_addons/ofxOrbbecAstra"]
-	path = oF_addons/ofxOrbbecAstra
-	url = https://github.com/mattfelsen/ofxOrbbecAstra
 [submodule "oF_addons/ofxRealSense2"]
 	path = oF_addons/ofxRealSense2
 	url = https://github.com/mizumasa/ofxRealSense2.git
