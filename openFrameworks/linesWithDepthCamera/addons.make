@@ -1,0 +1,6 @@
+ofxCv
+ofxKinect
+ofxOpenCv
+ofxProjectionMapping
+ofxRSSDK
+ofxVideoMapping

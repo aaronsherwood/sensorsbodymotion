@@ -118,3 +118,6 @@
 [submodule "oF_addons/ofxShadertoy"]
 	path = oF_addons/ofxShadertoy
 	url = https://github.com/aaronsherwood/ofxShadertoy
+[submodule "ofxOrbbecAstra"]
+	path = ofxOrbbecAstra
+	url = https://github.com/aaronsherwood/ofxOrbbecAstra.git
