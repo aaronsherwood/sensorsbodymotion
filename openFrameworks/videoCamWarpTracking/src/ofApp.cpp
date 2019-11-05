@@ -7,7 +7,7 @@ void ofApp::setup() {
     cam.setup(640, 480);
     
     ofSetVerticalSync(true);
-    warpedColor.allocate(640, 480, OF_IMAGE_COLOR);
+    warped.allocate(640, 480);
     
     movingPoint = false;
     saveMatrix = false;
@@ -15,14 +15,14 @@ void ofApp::setup() {
     settingNewPoints = false;
     
     destPoints.push_back(ofVec2f(0,0));
-    destPoints.push_back(ofVec2f(warpedColor.getWidth(),0));
-    destPoints.push_back(ofVec2f(warpedColor.getWidth(),warpedColor.getHeight()));
-    destPoints.push_back(ofVec2f(0,warpedColor.getHeight()));
+    destPoints.push_back(ofVec2f(warped.getWidth(),0));
+    destPoints.push_back(ofVec2f(warped.getWidth(),warped.getHeight()));
+    destPoints.push_back(ofVec2f(0,warped.getHeight()));
     
-    srcPoints.push_back(ofVec2f(0+warpedColor.getWidth()+100,30));
-    srcPoints.push_back(ofVec2f(warpedColor.getWidth()+warpedColor.getWidth()-100,30));
-    srcPoints.push_back(ofVec2f(warpedColor.getWidth()+warpedColor.getWidth()-100,warpedColor.getHeight()-30));
-    srcPoints.push_back(ofVec2f(0+warpedColor.getWidth()+100,warpedColor.getHeight()-30));
+    srcPoints.push_back(ofVec2f(0+warped.getWidth()+100,30));
+    srcPoints.push_back(ofVec2f(warped.getWidth()+warped.getWidth()-100,30));
+    srcPoints.push_back(ofVec2f(warped.getWidth()+warped.getWidth()-100,warped.getHeight()-30));
+    srcPoints.push_back(ofVec2f(0+warped.getWidth()+100,warped.getHeight()-30));
     
     // load the previous homography if it's available
     ofFile previous("homography.yml");
@@ -33,7 +33,7 @@ void ofApp::setup() {
 
     }
     
-    ofSetVerticalSync(true);
+    
 }
 
 void ofApp::update() {
@@ -42,7 +42,7 @@ void ofApp::update() {
         if(settingNewPoints) {
             vector<Point2f> sPoints, dPoints;
             for(int i = 0; i < destPoints.size(); i++) {
-                sPoints.push_back(Point2f(srcPoints[i].x - warpedColor.getWidth(), srcPoints[i].y));
+                sPoints.push_back(Point2f(srcPoints[i].x - warped.getWidth(), srcPoints[i].y));
                 dPoints.push_back(Point2f(destPoints[i].x, destPoints[i].y));
             }
             
@@ -61,13 +61,13 @@ void ofApp::update() {
         if(homographyReady) {
             // this is how you warp one ofImage into another ofImage given the homography matrix
             // CV INTER NN is 113 fps, CV_INTER_LINEAR is 93 fps
-            warpPerspective(cam, warpedColor, homography, CV_INTER_LINEAR);
-            warpedColor.update();
+            warpPerspective(cam, warped, homography, CV_INTER_LINEAR);
+            warped.flagImageChanged();
         }
     }
 }
 
-void drawPoints(vector<ofVec2f>& points) {
+void ofApp::drawPoints(vector<ofVec2f>& points) {
     ofNoFill();
     for(int i = 0; i < points.size(); i++) {
         ofDrawCircle(points[i], 10);
@@ -78,9 +78,9 @@ void drawPoints(vector<ofVec2f>& points) {
 void ofApp::draw() {
     
     ofSetColor(255);
-    cam.draw(warpedColor.getWidth(), 0);
+    cam.draw(warped.getWidth(), 0);
     if(homographyReady) {
-        warpedColor.draw(0, 0);
+        warped.draw(0, 0);
     }
     if (settingNewPoints){
         ofPushStyle();
@@ -114,7 +114,7 @@ bool ofApp::movePoint(vector<ofVec2f>& points, ofVec2f point) {
 
 void ofApp::mousePressed(int x, int y, int button) {
     ofVec2f cur(x, y);
-    ofVec2f rightOffset(warpedColor.getWidth(), 0);
+    ofVec2f rightOffset(warped.getWidth(), 0);
     movePoint(srcPoints, cur);
 }
 

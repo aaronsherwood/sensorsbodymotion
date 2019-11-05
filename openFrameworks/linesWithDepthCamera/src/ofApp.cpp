@@ -182,7 +182,6 @@ void ofApp::closestPoint(){
     float closestY=0;
     
     ofPixels & pix = grayImage.getPixels();
-    int numPixels = pix.size();
     for (int y=0;y<depthHeight;y++){
         for (int x=0; x<depthWidth; x++) {
             int index = x+y*depthWidth;
@@ -212,7 +211,6 @@ void ofApp::averageDepth(){
     float averageY = 0;
     
     ofPixels & pix = grayImage.getPixels();
-    int numPixels = pix.size();
     for (int y=0;y< depthHeight;y++){
         for (int x=0; x<depthWidth; x++) {
             int index = x+y*depthWidth;
