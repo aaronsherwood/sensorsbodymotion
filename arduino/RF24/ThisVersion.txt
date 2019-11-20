@@ -1,0 +1,31 @@
+This version of the RF24 library (originally developed by J. Coliz, Jr., 
+aka "ManiacBug") was updated by M. Pendrith <support@embeddedcoolness.com> 
+to produce a version of the library that has been tested to work with the 
+PJRC Teensy 3.x boards, for the convenience of customers of 
+embeddedcoolness.com that have purchased the "RFX Teensy 3.x dev board w/ 
+prototyping area and nRF24L01+ headers" carrier board.
+
+This version of the RF24 library has been tested to work with Teensyduino 1.18, 
+May 2014. The examples and library files have been rewritten where required so
+that both ARM boards and AVR boards should be supported without further changes 
+being needed.
+
+For reference, all the orginal example and test sketches are included under 
+"org" directories. The updated ARM-compatible versions of the sketches have a 
+"2" appended at the end of the name (e.g., "GettingStarted2") to make it clear 
+which version you are working with.
+
+The library examples should all work with the Teensy 3.x connected to a 
+nRF24L01+ module as per the embeddedcoolness.com RFX board pin assignments 
+(i.e., HW SPI, IRQ = 2, CE = 3, CSN = 7).
+
+The exception is the "pingpair_sleepy2" example. Note that this example sketch 
+only works for AVR processor boards for now (equivalent ARM specific code yet 
+to be added.) Also, the "native" test sketch for the LeafLabs Native Maple dev 
+board hasn't been changed or tested with these library changes.
+
+June 2014
+
+
+
+
