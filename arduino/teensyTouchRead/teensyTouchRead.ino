@@ -5,6 +5,6 @@ void setup() {
 
 void loop() {
   // easy, just touchRead(pin)
-  int data = touchRead(23);
+  int data = touchRead(3);
   Serial.println(data);
 }

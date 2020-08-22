@@ -15,11 +15,13 @@ io.sockets.on('connection', function (socket) {
 	    oscClient.send('/status', socket.sessionId + ' connected');
 		oscServer.on('message', function(msg, rinfo) {
 			socket.emit("message", msg);
+
 		});
 		socket.emit("connected", 1);
 	});
  	socket.on("message", function (obj) {
 		oscClient.send.apply(oscClient, obj);
+		console.log(obj);
   	});
 	socket.on('disconnect', function(){
 		if (isConnected) {

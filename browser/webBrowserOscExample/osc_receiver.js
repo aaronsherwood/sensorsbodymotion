@@ -21,6 +21,7 @@ function setupOsc(oscPortIn, oscPortOut) {
     rememberTransport: false
   });
   socket.on('connect', function() {
+		console.log("connected "+oscPortIn);
     socket.emit('config', {
       server: {
         port: oscPortIn,
@@ -33,6 +34,7 @@ function setupOsc(oscPortIn, oscPortOut) {
     });
   });
   socket.on('message', function(msg) {
+		console.log("receiving");
     if (msg[0] == '#bundle') {
       for (var i = 2; i < msg.length; i++) {
         receiveOsc(msg[i][0], msg[i].splice(1));
@@ -67,7 +69,7 @@ window.mobileAndTabletcheck = function() {
 };
 
 function OnceLoaded() {
-  setupOsc(13000, 12345);
+  setupOsc(12345,12000);
   if (window.mobileAndTabletcheck()) {
     if (window.DeviceOrientationEvent) {
       window.addEventListener("deviceorientation", function() {
