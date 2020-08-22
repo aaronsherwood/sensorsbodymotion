@@ -1,0 +1,72 @@
+-- Intro Supercollider, SuperDirt, & Tidalcycles
+
+-- play one sound
+d1 $ sound "bd"
+
+-- stop the sound
+d1 silence
+
+-- what is a cycle? tilda is a rest
+d1 $ sound "bd bd sn ~"
+
+-- sample folders, choose specific samples
+d1 $ sound "bd bd sn:1 ~"
+
+-- choose some random sounds
+d1 $ sound "bd hh cp mt sn:2 arpy drum odx"
+
+-- slow & fast
+d1 $ slow 2 $ sound "bd bd sn:1 ~"
+d1 $ fast 2 $ sound "bd bd sn:1 ~"
+
+-- subdivisions
+d1 $ slow 2 $ sound "bd bd sn:1 [~ bd]"
+
+-- alternate sounds each cycle
+d1 $ slow 2 $ sound "bd bd <feel:5 feel:3> [~ bd]"
+
+-- layer a sound
+d2 $ sound "hh hh hh hh"
+
+-- multiply
+d2 $ sound "hh*8"
+
+-- randomly drop a sound
+d1 $ slow 2 $ sound "bd bd? <feel:5 feel:3> [~ bd?]"
+d2 $ sound "hh*8?"
+
+-- degradeBy
+d2 $ degradeBy 0.15 $ sound "hh*8"
+
+-- gain
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.5"
+
+-- gain pattern
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95"
+
+-- reverb
+d1 $ slow 2 $ sound "bd bd? <feel:5 feel:3> [~ bd?]" # room "0.5"
+-- with pattern
+d1 $ slow 2 $ sound "bd bd? <feel:5 feel:3> [~ bd?]" # room "0.5 0.2 0.9 0.4"
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5"
+
+-- speed (pitch)
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5" # speed 2
+-- it's a pattern too of course!
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5" # speed "0.5 -1 2 1.5"
+
+-- sometimesBy
+d2 $ sometimesBy 0.4 (# speed 2) $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5" 
+
+-- sometimes with pattern (sometimes without the BY is 50% chance)
+d2 $ sometimes (# speed "0.5 -1 2 1.5") $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5"
+
+
+-- hush
+hush
+
+-- MORE TO COME
+d3 silence
+
+-- all documentation
+-- https://tidalcycles.org/index.php/Userbase

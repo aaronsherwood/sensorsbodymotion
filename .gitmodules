@@ -121,3 +121,6 @@
 [submodule "ofxOrbbecAstra"]
 	path = ofxOrbbecAstra
 	url = https://github.com/aaronsherwood/ofxOrbbecAstra.git
+[submodule "ml5-examples"]
+	path = ml5-examples
+	url = https://github.com/ml5js/ml5-examples.git
