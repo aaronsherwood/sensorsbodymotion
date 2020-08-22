@@ -11,7 +11,7 @@ d1 $ sound "bd bd sn ~"
 
 -- sample folders, choose specific samples
 d1 $ sound "bd bd sn:1 ~"
--- to find the sample folder in supercollider evaulate: Quarks.gui 
+-- to find the sample folder in supercollider evaulate: Quarks.gui
 
 -- choose some random sounds
 d1 $ sound "bd hh cp mt sn:2 arpy drum odx"
@@ -46,28 +46,26 @@ d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.5"
 d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95"
 
 -- reverb
-d1 $ slow 2 $ sound "bd bd? <feel:5 feel:3> [~ bd?]" # room "0.5"
+d1 $ slow 2 $ sound "bd bd? <feel:5 feel:3> [~ bd?]" # room "0.3"
 -- with pattern
 d1 $ slow 2 $ sound "bd bd? <feel:5 feel:3> [~ bd?]" # room "0.5 0.2 0.9 0.4"
-d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5"
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.3"
 
 -- speed (pitch)
-d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5" # speed 2
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.3" # speed 2
 -- it's a pattern too of course!
-d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5" # speed "0.5 -1 2 1.5"
-
--- sometimesBy
-d2 $ sometimesBy 0.4 (# speed 2) $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5"
+d2 $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.3" # speed "0.5 -1 2 1.5"
 
 -- sometimes with pattern (sometimes without the BY is 50% chance)
-d2 $ sometimes (# speed "0.5 -1 2 1.5") $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.5"
+d2 $ sometimes (# speed "0.5 -1 2 1.5") $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.3"
 
+-- sometimesBy
+d2 $ sometimesBy 0.4 (# speed "-1 0.5 2 3 4 2 3 1") $ degradeBy 0.15 $ sound "hh*8" # gain "1.1 0.77 0.785 1.4 0.8 0.77 0.95" # room "0.3"
 
 -- hush
 hush
-
--- MORE TO COME
-d3 silence
+d1 silence
+d2 silence
 
 -- all documentation
 -- https://tidalcycles.org/index.php/Userbase
