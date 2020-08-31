@@ -1,0 +1,56 @@
+-- starting point
+d1 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9
+
+-- oscillator (there are saw, sine, tri, & square)
+d1 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # speed saw
+
+-- with range for oscillator
+d1 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # speed (range 0.5 8 saw)
+
+-- slow & fast
+d1 $ slow 2 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # speed (range 0.5 8 saw)
+d1 $ fast 2 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # speed (range 0.5 8 saw)
+
+-- slow down the oscillator
+d1 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # slow 4 (speed (range 0.5 8 saw))
+
+-- reverse the ramp
+d1 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # slow 4 (speed (range 8 0.5 saw))
+
+-- choose musical notes with UP
+d2 $ sound "casio:1*16" # room 0.9
+d2 $ sound "casio:1*16" # up "-6" # room 0.9
+
+-- still can effect the speed
+d2 $ sound "casio:1*16" # up "-6" # room 0.9 # slow 4 (speed (range 1 1.5 saw ))
+
+-- rand on gain with a range
+d2 $ sound "casio:1*16" # up "-6" # room 0.9 # slow 4 (speed (range 1 1.5 saw )) # gain (range 0.5 1 rand)
+
+-- start with similar beat from earlier video
+d3 $ sound "bd:3 bd:3 sn:2 [~ bd:3?]" # room 0.9
+
+-- change speed and make every sample sometimes play with ?
+d3 $ sound "bd:3*8? bd:3? sn:2? [~ bd:3?]" # room 0.9 # speed (range 8 1 saw)
+
+-- replace a part every other cycle
+d3 $ sound "<~ bd:3*8?> bd:3? sn:2? [~ bd:3?]" # room 0.9 # speed (range 8 1 saw)
+
+-- make a somewhat organically complex beat simply
+-- can change SIZE of room
+d4 $ sound "<feel:6? [~ feel:6]> <feel:3 feel:4>" # room 0.9 # size 0.9 # gain "1.1"
+
+-- another way to layer
+d4 $ sound "[<feel:6? [~ feel:6]> <feel:3 feel:4>, feel:1*16?]" # room 0.9 # size 0.9
+
+-- whole thing put together
+d1 $ sound "feel:6 feel:5*8? feel:3 feel:1" # room 0.9 # slow 4 (speed (range 8 0.5 saw))
+d2 $ sound "casio:1*16" # up "-6" # room 0.9 # slow 4 (speed (range 1 1.5 saw )) # gain (range 0.5 1 rand)
+d3 $ sound "<~ bd:3*8?> bd:3? sn:2? [~ bd:3?]" # room 0.9 # speed (range 8 1 saw)
+d4 $ sound "[<feel:6? [~ feel:6]> <feel:3 feel:4>, feel:1*16?]" # room 0.9 # size 0.9 # gain "1.1"
+
+d1 silence
+d2 silence
+d3 silence
+d4 silence
+hush
