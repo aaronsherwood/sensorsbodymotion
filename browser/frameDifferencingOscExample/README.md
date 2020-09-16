@@ -1,5 +1,4 @@
-# Web Browser OSC to Wekinator with TILT!
-This example will send OSC from a webpage to Wekinator. It will send mouse X & Y if used on a desktop browser, and it will send two tilt values + touch X & Y if used on on a modile device.
+# Frame Differencing OSC Example
 
 ## Usage
 
