@@ -1,0 +1,82 @@
+-- starting point
+d1 $ s "tabla2*8" # room "1" # gain (range 0.85 1 rand)
+
+-- # n
+d1 $ s "tabla2*8" # n ("0 1 2 3 4 5 6 7") # room "1" # gain (range 0.85 1 rand)
+
+-- # up
+d1 $ s "tabla2*8" # n ("0 1 2 3 4 5 6 7") # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- run
+d1 $ s "tabla2*8" # n (run 8) # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- # different numbers
+d1 $ s "tabla2*8" # n ("30 20 10 6 7 25 11 13") # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- run 46
+d1 $ s "tabla2*8" # n (run 46) # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- irand
+d1 $ s "tabla2*8" # n (irand 46) # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- every
+d1 $ every 8 (fast 2) $ s "tabla2*8" # n (irand 46) # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- whenmod
+d1 $ whenmod 16 12 (fast 2) $ s "tabla2*8" # n (irand 46) # up "2" # room "1" # gain (range 0.85 1 rand)
+
+-- const
+d1 $ every 4 (const $ s "tabla2*12" # n (irand 46) # up "1" # room "2" # gain (range 0.85 1.1 rand)) $ s "tabla2*8" # n (irand 46) # up "1" # room "1" # gain (range 0.85 1 rand)
+
+-- somecyclesBy
+d1 $ somecyclesBy 0.4 (const $ s "tabla2*12" # n (irand 46) # up "2" # room "1" # gain (range 0.85 1.1 rand)) $ s "tabla2*8" # n (irand 46) # up "1" # room "1" # gain (range 0.85 1 rand)
+
+-- sometimesBY
+d1 $ sometimesBy 0.4 (const $ s "tabla2*12" # n (irand 46) # up "2" # room "1" # gain (range 0.85 1.1 rand)) $ s "tabla2*8" # n (irand 46) # up "1" # room "1" # gain (range 0.85 1 rand)
+
+-- including every in original pattern when sometimes triggering
+d1 $ somecyclesBy 0.4 (const $ s "tabla2*12" # n (irand 46) # up "2" # room "1" # gain (range 0.85 1.1 rand)) $ every 8 (fast 2) $ s "tabla2*8?" # n (irand 46) # up "1" # room "1" # gain (range 0.85 1 rand)
+
+-- adding samples to the sample folder
+
+-- up
+d2 $ sound "kalimba*8" # up "0 2 4 7" # gain (range 0.86 1 rand) # room "0.6"
+
+-- irand samples
+d2 $ sound "kalimba*8" # up "0 2 4 7" # n (irand 4) # gain (range 0.86 1 rand) # room "0.6"
+
+-- further up
+d2 $ sound "kalimba*8" # up "0 2 4 <10 9 8 7>" # gain (range 0.86 1 rand) # n (irand 4) # room "0.6"
+
+-- # note and scale
+d2 $ sound "kalimba*8" # note (scale "majPent" "0 .. 4") # gain (range 0.86 1 rand) # n (irand 4) # room "0.6"
+
+-- print out the scale names
+scaleList -- see what their contents here: https://github.com/tidalcycles/Tidal/blob/main/src/Sound/Tidal/Scales.hs
+
+-- euclidean rhythms
+-- https://tidalcycles.org/index.php/Tutorial#Euclidean_Sequences
+-- http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf
+d2 $ sound "kalimba(5, 8)" # note (scale "majPent" "-2 .. 4") # gain (range 0.86 1 rand) # n (irand 4) # room "0.6"
+
+-- struct (reverse note and sound)
+d2 $ struct ("t(5,8)") $ note (scale "majPent" "-2 .. 4") # sound "kalimba"  # gain (range 0.86 1 rand) # n (irand 4) # room "0.6"
+
+-- iter
+d2 $ struct (iter 4 "t(5,8)") $ note (scale "majPent" "-2 .. 4") # sound "kalimba"  # gain (range 0.86 1 rand) # n (irand 4) # room "0.6"
+
+-- alterante scales
+d2 $ struct (iter 4 "t(5,8)") $ sometimesBy "0.3" (# note (scale "bartok" "-2 .. 5")) $ note (scale "majPent" "-2 .. 5") # sound "kalimba" # gain (range 0.86 1 rand) # n (irand 4) # room "0.6"
+
+-- delay
+d2 $ struct (iter 4 "t(5,8)") $ sometimesBy "0.3" (# note (scale "bartok" "-2 .. 5")) $ note (scale "majPent" "-2 .. 5") # sound "kalimba" # gain (range 0.86 1 rand) # n (irand 4) # room "0.6" # delay "0.5" # delayfb "0.5" # delaytime "0.5"
+
+-- reverse sample
+d2 $ every 4 (# speed "-1") $ struct (iter 4 "t(5,8)") $ sometimesBy "0.3" (# note (scale "bartok" "-2 .. 5")) $ note (scale "majPent" "-2 .. 5") # sound "kalimba" # gain (range 0.86 1 rand) # n (irand 4) # room "0.6" # delay "0.5" # delayfb "0.5" # delaytime "0.5"
+
+-- jux & rev (plays one pattern in one channel and reverse of that PATTERN in the other channel)
+d2 $ jux rev $ every 4 (# speed "-1") $ struct (iter 4 "t(5,8)?") $ sometimesBy "0.3" (# note (scale "bartok" "-2 .. 5")) $ note (scale "majPent" "0 .. 7") # sound "kalimba" # gain (range 0.86 1 rand) # n (irand 4) # room "0.6" # delay "0.5" # delayfb "0.5" # delaytime "0.5"
+
+hush
+d1 silence
+d2 silence
