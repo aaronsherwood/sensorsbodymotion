@@ -7,5 +7,4 @@ This example will use optical flow and send OSC from a webpage.
 * On the command line, navigate to the folder that contains all the files for the example.
 * Start the server: `node server.js`
    - (All node modules are included)
-* Set the IP Address in the index.html file to the IP Address of the computer where the server is running
 * Navigate in a browser to `localhost:8000`

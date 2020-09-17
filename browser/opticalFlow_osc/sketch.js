@@ -108,7 +108,7 @@ function draw() {
             }
 
               // we can get the the direction horz, vert, and the size of the line (via mag())
-              console.log("x: "+avgOpticalFlow .x + "\ny: "+ avgOpticalFlow.y + "\nlength: " + smoothedAvgOpticalFlow.mag());
+              console.log("x: "+avgOpticalFlow.x + "\ny: "+ avgOpticalFlow.y + "\nlength: " + smoothedAvgOpticalFlow.mag());
 
               // send OSC
 
