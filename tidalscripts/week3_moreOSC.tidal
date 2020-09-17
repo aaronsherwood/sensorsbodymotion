@@ -1,0 +1,17 @@
+-- OSC messages we've defined for use in sketch.js are: optflowX, optflowY, optflowLength, moverX, moverY
+
+-- use the average optical flow x coordinate to adjust speed
+d1 $ s "tabla2*8?" # speed (cF 0 "optflowX")
+
+-- use the average optical flow vector's magnitude to adjust speed
+d1 $ s "tabla2*8?" # speed (cF0 "optflowLength") -- cf0 is the same as cF 0 but all in one
+
+-- play with select
+d1 $ selectF (cF0 "moverX") [slow 2, fast 2] $ s "tabla2*8"
+
+d1 $ selectF (cF0 "moverX") [slow 2, fast 2, struct "t(5,8)"] $ s "tabla2*8"
+
+-- play tabla across the screen
+d1 $ selectF (cF0 "moverX") [(const $ s "tabla2*8?" # n (irand 46) # up "1" # room "1" # gain (range 1.1 0.3 $ cF0 "moverY")), (const $ s "tabla2*12" # n (irand 46) # up "1" # room "1" # gain (range 1.1 0.3 $ cF0 "moverY") ), (const $ s "tabla2*16" # n (irand 46) # up "1" # room "1" # gain (range 1.1 0.3 $ cF0 "moverY") ) ] $ s "tabla2"
+
+hush

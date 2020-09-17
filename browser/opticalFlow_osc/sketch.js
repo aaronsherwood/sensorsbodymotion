@@ -57,12 +57,10 @@ function draw() {
   capture.loadPixels();
       if (capture.pixels.length > 0) {
           if (previousPixels) {
-
               // cheap way to ignore duplicate frames
               if (same(previousPixels, capture.pixels, 4, width)) {
                   return;
               }
-
               flow.calculate(previousPixels, capture.pixels, capture.width, capture.height);
           }
           previousPixels = copyImage(capture.pixels, previousPixels);
@@ -110,39 +108,24 @@ function draw() {
             }
 
               // we can get the the direction horz, vert, and the size of the line (via mag())
-              // console.log(avgOpticalFlow .x + " "+ avgOpticalFlow.y + " " + Math.floor(smoothedAvgOpticalFlow.mag())*16);
-              // to get actual + or - for directions do:
-              // console.log(Math.sign(avgOpticalFlow .x) + " "+ Math.sign(avgOpticalFlow.y) + " " + smoothedAvgOpticalFlow.mag());
-              var t = true
-              if (Math.sign(smoothedAvgOpticalFlow.x)>=0){ t = true} else t = false
-              // Boolean(smoothedAvgOpticalFlow.x >= 0)
-              // send OSC
-              // sendOsc('/ctrl', 'optflowX', smoothedAvgOpticalFlow.x);
-              // sendOsc('/ctrl', 'optflowY', smoothedAvgOpticalFlow.y);
-              // sendOsc('/ctrl', 'optflowLength', smoothedAvgOpticalFlow.mag());
-              // sendOscInt('/ctrl', 'optflowLengthInt', Math.floor(smoothedAvgOpticalFlow.mag())*3);
-              // sendOscBool('/ctrl', 'optflowX_sign', t);
+              console.log("x: "+avgOpticalFlow .x + "\ny: "+ avgOpticalFlow.y + "\nlength: " + smoothedAvgOpticalFlow.mag());
 
-              // console.log(moverX);
+              // send OSC
+
+              sendOsc('/ctrl', 'optflowX', smoothedAvgOpticalFlow.x);
+              sendOsc('/ctrl', 'optflowY', smoothedAvgOpticalFlow.y);
+              sendOsc('/ctrl', 'optflowLength', smoothedAvgOpticalFlow.mag());
 
               var moverX = map(movers[0].position.x,0,w,0.,1.);
               sendOsc('/ctrl', 'moverX', moverX);
               var moverY = map(movers[0].position.y,0,h,0.,1.);
               sendOsc('/ctrl', 'moverY', moverY);
 
-              // if (smoothedAvgOpticalFlow.x<=0)
-              //   sendOsc('/ctrl', 'optflowNegX', Math.max(smoothedAvgOpticalFlow.x,1));
-              // else if (smoothedAvgOpticalFlow.x>=0)
-              //   sendOsc('/ctrl', 'optflowPosX', Math.max(smoothedAvgOpticalFlow.x,1));
-
+              // draw the average flow
               strokeWeight(5);
               stroke(255,0,0);
               // multipling by 10 in order to see on screen better
               line(width/2, height/2, width/2+smoothedAvgOpticalFlow.x*10, height/2+smoothedAvgOpticalFlow.y*10);
           }
       }
-// sendOsc('/ctrl', 'optflowLength', smoothedAvgOpticalFlow.x);
-
-
-
 }
