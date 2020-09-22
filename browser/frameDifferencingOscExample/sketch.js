@@ -37,6 +37,7 @@ function draw() {
     var total = 0;
 		var section1 = 0;
     var section2 = 0;
+    var section3 = 0;
     if (capture.pixels.length > 0) { // don't forget this!
         if (!previousPixels) {
             previousPixels = copyImage(capture.pixels, previousPixels);
@@ -49,6 +50,7 @@ function draw() {
 						//this puts it to 255 scale
             var thresholdAmount = select('#thresholdAmount').value() * 255. / 100.;
             thresholdAmount *= 3; // 3 for r, g, b
+            console.log(mouseX);
             for (var y = 0; y < h; y++) {
                 for (var x = 0; x < w; x++) {
                     // calculate the differences
@@ -68,6 +70,9 @@ function draw() {
 												if (x<100){
 													section1 += diffs;
 												}
+                        if (x<400 && x>200 & y<400 && y>200){
+                          section3 += diffs;
+                        }
                         // section 2
                         if (x>width-100){
 													section2 += diffs;
@@ -141,7 +146,7 @@ function draw() {
     // draw rectangles for the sections
     noStroke();
 
-		fill(255,0,0, 255*sec1num);
+		fill(255,0,0, 255*sec1num+50);
 		rect(0,0,100, height);
 
     fill(255,0,0, 255*sec2num);
