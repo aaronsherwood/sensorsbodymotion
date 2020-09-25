@@ -1,0 +1,4 @@
+d1 $ sound "hh*16" # speed (range "-1" 10 $ cF0 "speed") # gain (range 0.5 4 $ cF0 "gain")
+d2 $ sound "bd?*16" # speed (range 0 2 $ cF0 "speed") # gain (range 0.5 4 $ cF0 "gain")
+
+hush

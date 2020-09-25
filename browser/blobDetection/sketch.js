@@ -153,15 +153,8 @@ function draw() {
               var box = cv.boundingRect(contour);
               var center = createVector(box.x + box.width/2, box.y + box.height/2);
               ellipse(center.x, center.y, 10, 10);
-
               rect(box.x, box.y, box.width, box.height);
           }
-
-            // these aren't working right now:
-            // https://github.com/ucisysarch/opencvjs/issues/30
-//            var minAreaRect = cv.minAreaRect(contour);
-//            var minAreaEllipse = cv.ellipse1(contour);
-//            var fitEllipse = cv.fitEllipse(contour);
         }
     }
 }
