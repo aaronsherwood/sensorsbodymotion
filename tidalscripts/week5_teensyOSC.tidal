@@ -1,0 +1,20 @@
+d1 $ selectF (cF0 "touchRead1") [(const $ s "tabla2*8?" # n (irand 46) # up "1" # room "1" # gain (range 0 1.1 $ cF0 "touchRead2")), (const $ s "tabla2*12" # n (irand 46) # up "1" # room "1" # gain (range 0 1.1 $ cF0 "touchRead2") ), (const $ s "tabla2*16" # n (irand 46) # up "1" # room "1" # gain (range 0 1.1  $ cF0 "touchRead2") ) ] $ s "tabla2"
+
+hush
+
+-- not connected to prop shield
+
+d1 $ every 16 (const $ s "jvbass*8" # n (run 4) # room "1.5" # gain 1 # up "-1") $ whenmod 8 4 (const $ s "jvbass*8" # n (run 7) # room "1.5" # gain 1 # up "-1") $ s "jvbass*8" # n (run 14) # room "1.5" # gain 1 # up "-1"
+
+d2 $ jux (striate 2) $ sometimes (rev) $ every 4 (const $ sound "arpy*12" # n (run 11) # speed "1" # gain 1) $ sound "arpy*8" # n (run 8) # room "0.3" # gain 1
+
+d3 $ s "[909*4, 808:1*16?, ~ 808:3 ~ 808:3]" # room "0.9" # gain 1.1
+
+
+-- connected to prop shield
+
+d1 $ every 16 (const $ s "jvbass*8" # n (run 4) # room "1.5" # gain (range 0.5 1 $ cF0 "heading") # up "-1") $ whenmod 8 4 (const $ s "jvbass*8" # n (run 7) # room "1.5" # gain (range 0.5 1 $ cF0 "heading") # up "-1") $ s "jvbass*8" # n (run 14) # room "1.5" # gain (range 0.5 1 $ cF0 "heading") # up "-1"
+
+d2 $ jux (striate 2) $ sometimes (rev) $ every 4 (const $ sound "arpy*12" # n (run 11) # speed "1" # gain (range 0.5 1 $ cF0 "pitch")) $ sound "arpy*8" # n (run 8) # room "0.3" # gain (range 0.5 1 $ cF0 "pitch")
+
+d3 $ s "[909*4, 808:1*16?, ~ 808:3 ~ 808:3]" # room "0.9" # gain (range 0.5 1.1 $ cF0 "roll")
