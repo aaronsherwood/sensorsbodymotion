@@ -1,0 +1,9 @@
+-- GridEYE
+-- can get 0 OR 1 for each square (square0 - square63)
+-- as well as average (between 0 - 1)
+
+d1 $ slice 8 "[<0*8 0*2> 3*4 2 4] [4 .. 7]" $ sound "breaks125:1" # room 0.25 # gain (range 0 1 $ cF0 "square0") # crush (range 10 2 $ cF0 "average")
+
+d2 $ slow 32 $ jux (rev) $ striate' 32 (1/16) $ slow 1 $ sound "toys*16" # n (run 8) # gain (range 0 1 $ cF0 "square20") # crush (range 10 2 $ cF0 "average")
+
+hush

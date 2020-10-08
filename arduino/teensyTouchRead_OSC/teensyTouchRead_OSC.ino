@@ -12,7 +12,7 @@ void loop() {
   Serial.println(data);
 
   // touch pin 16
-  data = touchRead(16);
+  data = touchRead(23);
   data = map(data, 900, 7000, 0, 1);
   data = constrain(data, 0, 1);
   Serial.print("/ctrl,touchRead2,");
