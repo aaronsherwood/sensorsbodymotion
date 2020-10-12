@@ -1,7 +1,7 @@
 //use pin 2 for the tilt switch
 const int tiltSwitch = 2;
 //use pin 9 for LED pin
-const int ledPin = 9;
+const int ledPin = 13;
 
 const int numReadings = 75;
 int readings[numReadings];
