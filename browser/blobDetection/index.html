@@ -9,15 +9,15 @@
             loaded: false,
             print: console.log,
             printErr: function(text) {
-                document.getElementById('status').innerHTML = text;
+                // document.getElementById('status').innerHTML = text;
                 console.error(text);
             },
             setStatus: function(text) {
-                document.getElementById('status').innerHTML = text;
+                // document.getElementById('status').innerHTML = text;
                 console.log(text);
             },
             onRuntimeInitialized: function() {
-                document.getElementById('status').innerHTML = 'Loaded';
+                // document.getElementById('status').innerHTML = 'Loaded';
                 this.loaded = true;
             }
         };

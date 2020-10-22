@@ -124,3 +124,6 @@
 [submodule "ml5-examples"]
 	path = ml5-examples
 	url = https://github.com/ml5js/ml5-examples.git
+[submodule "p5jsShaderExamples"]
+	path = p5jsShaderExamples
+	url = https://github.com/aferriss/p5jsShaderExamples.git
