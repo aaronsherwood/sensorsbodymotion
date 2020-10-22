@@ -3,9 +3,7 @@
 //this variable will hold our shader object
 let myShader;
 let cam;
-let texture;
 let movie;
-let mix = .5;
 
 function preload() {
   // a shader is composed of two parts, a vertex shader, and a fragment shader
@@ -15,7 +13,6 @@ function preload() {
   // loadShader() first takes the filename of a vertex shader, and then a frag shader
   // these file types are usually .vert and .frag, but you can actually use anything. .glsl is another common one
   myShader = loadShader("shader.vert", "shader.frag");
-  texture = loadImage("texture.png");
 }
 
 function setup() {
@@ -46,7 +43,7 @@ function draw() {
   myShader.setUniform("mouse", [mouseX, map(mouseY, 0, height, height, 0)]);
   myShader.setUniform("resolution", [width, height]);
   myShader.setUniform("cam", cam);
-  myShader.setUniform("tex0", movie); //try "texture" or "movie" here
+  myShader.setUniform("tex0", movie);
   myShader.setUniform("textureMix", map(mouseX, 0., width, 0., 1.));
   rect(0, 0, width, height);
 

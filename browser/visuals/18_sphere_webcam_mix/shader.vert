@@ -48,9 +48,6 @@ void main() {
   vNormal = normalize((uModelViewMatrix * vec4(aNormal, 0.0)).xyz);
 
   // Sample the camera texture
-  // We will shift the texture coordinates over time to make the camera move
-  float tile = 2.0;
-  float speed = 0.002;
   vec4 cam = texture2D(uCamTexture, aTexCoord);
 
   // Send the camera color to the fragment shader

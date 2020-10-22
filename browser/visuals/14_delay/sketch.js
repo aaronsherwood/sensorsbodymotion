@@ -72,8 +72,8 @@ function draw() {
   camShader.setUniform('tex0', layers[indexes[0]]);
   camShader.setUniform('tex1', layers[indexes[1]]);
   camShader.setUniform('tex2', layers[indexes[2]]);
-  camShader.setUniform('tex3', layers[indexes[3]]);
-  camShader.setUniform('tex4', layers[indexes[4]]);
+  // camShader.setUniform('tex3', layers[indexes[3]]);
+  // camShader.setUniform('tex4', layers[indexes[4]]);
 
 
   // rect gives us some geometry on the screen

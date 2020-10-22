@@ -8,8 +8,6 @@ uniform sampler2D cam;
 
 void main() {
   // the texture is loaded upside down and backwards by default so lets flip it
-
-  // the texture is loaded upside down and backwards by default so lets flip it
   vec4 color = texture2D(cam, 1.0-uv);
 
   // to not mirror X

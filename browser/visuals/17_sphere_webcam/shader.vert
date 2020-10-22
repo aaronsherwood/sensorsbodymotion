@@ -41,10 +41,7 @@ varying vec3 vCam;
 void main() {
 
   // Sample the cam texture
-  // We will shift the texture coordinates over time to make the cam move
-  float tile = 2.0;
-  float speed = 0.002;
-    vec4 cam = texture2D(uTexture, (aTexCoord  + uFrameCount *0.));
+  vec4 cam = texture2D(uTexture, (aTexCoord ));
 
   // Send the cam color to the fragment shader
   vCam = cam.rgb;

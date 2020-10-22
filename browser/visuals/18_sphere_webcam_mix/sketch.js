@@ -45,7 +45,7 @@ function draw() {
   myShader.setUniform("uCamTexture", cam);
   myShader.setUniform("uTexture", texture); //try "texture" or "movie" here
   myShader.setUniform("uAmplitude", amplitude);
-  myShader.setUniform("uTextureMix", mix);
+  myShader.setUniform("uTextureMix", map(mouseX, 0, width, 0, 1));
 
   // Rotate our geometry on the X and Y axes
   rotateX(radians(0));

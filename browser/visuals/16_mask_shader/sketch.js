@@ -4,8 +4,6 @@ let camShader;
 // the camera variable
 let cam;
 
-let movie;
-
 function preload(){
   // load the shader
   camShader = loadShader('effect.vert', 'effect.frag');
@@ -26,9 +24,6 @@ function setup() {
   // hide the html element that createCapture adds to the screen
   cam.hide();
   pixelDensity(1);
-
-  movie = createVideo('flow.mp4', vidLoad);
-  movie.hide();
 }
 
 function draw() {
@@ -41,12 +36,6 @@ function draw() {
 
   // rect gives us some geometry on the screen
   rect(0,0,width, height);
-}
-
-// This function is called when the video loads
-function vidLoad() {
-  movie.loop();
-  movie.volume(0);
 }
 
 function windowResized(){

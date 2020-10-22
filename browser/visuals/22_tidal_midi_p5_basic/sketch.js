@@ -29,7 +29,7 @@ function setup() {
 
     inputSoftware.addListener('noteon', "all",
       function(e) {
-        // console.log("Received noteon message(" + e.note.name + e.note.octave +").");
+        console.log("Received noteon message(" + e.note.name + e.note.octave +").");
         size = e.note.number;
       }
     );

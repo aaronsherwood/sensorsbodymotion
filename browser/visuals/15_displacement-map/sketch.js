@@ -41,7 +41,7 @@ function draw() {
     camShader.setUniform('tex1', movie);
   }
 
-  camShader.setUniform('amt', map(mouseX, 0, width, 0, 0.2));
+  camShader.setUniform('amt', map(mouseX, 0, width, 0, 0.92));
   // rect gives us some geometry on the screen
   rect(0, 0, width, height);
 }
