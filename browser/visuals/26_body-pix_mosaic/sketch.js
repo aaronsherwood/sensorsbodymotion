@@ -20,7 +20,7 @@ function setup() {
   // load up your video
   video = createCapture(VIDEO);
   video.size(320, 240);
-  // video.hide(); // Hide the video element, and just show the canvas
+  video.hide(); // Hide the video element, and just show the canvas
   bodypix = ml5.bodyPix(video, modelReady)
   // draw the body pix into a offscreen buffer
   pix = createGraphics(width, height);
