@@ -39,6 +39,6 @@ function gotResults(err, result) {
 
   pix.background(255);
   pix.image(video, 0, 0, width, height); // comment out to get white mask
-  pix.image(segmentation.maskBackground, 0, 0, width, height)
+  pix.image(segmentation.maskBackground, 0, 0, width, height) //try .maskPerson
   bodypix.segment(gotResults, options)
 }

@@ -3,7 +3,7 @@ precision mediump float;
 uniform vec2 resolution;
 uniform sampler2D tex0;
 uniform sampler2D tex1;
-float spread = .75;
+float spread = 0.75;
 float decay = 0.02;
 uniform bool alternate;
 
@@ -24,7 +24,6 @@ void main() {
   for(int y = -7; y <= 7; y++){
       for(int x = -7; x <= 7; x++){
         vec4 color;
-
         if (alternate)
           color = texture2D(tex0, vec2(uv.x,1.-uv.y) + vec2(x, y) * step);
         else

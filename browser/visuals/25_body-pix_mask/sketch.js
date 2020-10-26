@@ -40,8 +40,6 @@ function draw(){
   camShader.setUniform('tex0', pix);
   camShader.setUniform('tex1', movie);
   camShader.setUniform('resolution', [width, height]);
-  camShader.setUniform('amount', map(mouseX,0,width,0,1));
-  camShader.setUniform('power', map(mouseY,0,height,0,10));
   camShader.setUniform("frameCount", frameCount);
   // rect gives us some geometry on the screen
   rect(0,0,width, height);

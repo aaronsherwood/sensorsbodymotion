@@ -25,7 +25,7 @@ void main() {
   float a = texture2D(tex1, vec2(uv.x,1.-uv.y)).r;
   vec4 orig = texture2D(tex2, vec2(1.-uv.x,1.-uv.y));
 
-  float numRings = 30.;
+  float numRings = 30.;//30.;
   if (alternate)
     numRings = 12.;
   vec4 m = floor(mod(t*numRings, 1.0)+0.5);
