@@ -7,6 +7,7 @@ uniform vec2 resolution;
 uniform sampler2D tex0;
 uniform sampler2D tex1;
 uniform sampler2D tex2;
+uniform bool alternate;
 
 // just composite everything
 vec3 hsv2rgb(vec3 c)
@@ -24,7 +25,10 @@ void main() {
   float a = texture2D(tex1, vec2(uv.x,1.-uv.y)).r;
   vec4 orig = texture2D(tex2, vec2(1.-uv.x,1.-uv.y));
 
-  vec4 m = floor(mod(t*30.0, 1.0)+0.5);
+  float numRings = 30.;
+  if (alternate)
+    numRings = 12.;
+  vec4 m = floor(mod(t*numRings, 1.0)+0.5);
   float mr = m.r;
   m.rgb = mr * hsv2rgb(vec3(t.r + frameCount*0.5 , 0.745,1.0));
   m.a = mr;

@@ -9,6 +9,8 @@ let ping, pong, mask;
 //camera
 let cam;
 
+let alternate = false;
+
 function preload() {
   maskShader = loadShader("shader.vert", "mask.frag");
   dilatePingShader = loadShader("shader.vert", "dilate.frag");
@@ -48,21 +50,29 @@ function draw() {
   dilatePingShader.setUniform("resolution", [width, height]);
   dilatePingShader.setUniform("tex0", pong);
   dilatePingShader.setUniform("tex1", mask);
+  dilatePingShader.setUniform("alternate", alternate);
   ping.rect(0, 0, width, height);
 
   pong.shader(dilatePongShader);
   dilatePongShader.setUniform("resolution", [width, height]);
   dilatePongShader.setUniform("tex0", ping);
   dilatePongShader.setUniform("tex1", mask);
+  dilatePongShader.setUniform("alternate", alternate);
   pong.rect(0, 0, width, height);
 
   // render shader
   shader(renderShader);
   renderShader.setUniform("resolution", [width, height]);
+  maskShader.setUniform("frameCount", frameCount);
   renderShader.setUniform("tex0", ping);
   renderShader.setUniform("tex1", mask);
   renderShader.setUniform("tex2", cam);
+  renderShader.setUniform("alternate", alternate);
   rect(0, 0, width, height);
+}
+
+function mousePressed() {
+  alternate = !alternate;
 }
 
 function windowResized() {
