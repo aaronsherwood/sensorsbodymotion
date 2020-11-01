@@ -1,0 +1,74 @@
+-- quotes
+-- this works:
+d1 $ rev $ sound "808*8" # n (run 6) # speed 1 # room "0.75"
+
+-- but this doesn't (speed .5):
+d1 $ rev $ sound "808*8" # n (run 6) # speed .5 # room "0.75"
+
+-- less than 1 needs 0 before decimal
+d1 $ rev $ sound "808*8" # n (run 6) # speed 0.5 # room "0.75"
+
+-- negative doesn't work
+d1 $ rev $ sound "808*8" # n (run 6) # speed -0.5 # room "0.75"
+
+-- need quotes:
+d1 $ rev $ sound "808*8" # n (run 6) # speed "0.5" # room "0.75"
+
+-- this doesn't work:
+d1 $ rev $ sound "808*8" # n (run 6) # speed <0.25 0.15> # room "0.75"
+
+-- needs quotes:
+d1 $ rev $ sound "808*8" # n (run 6) # speed "<0.25 0.15>" # room "0.75"
+
+-- @ elongates part of a pattern; see: https://tidalcycles.org/index.php/Mini_notation_syntax
+d1 $ rev $ sound "808*8" # n (run 6) # speed "<0.25@3 0.15>" # room "0.75"
+
+-- parentheses (why do neither of these work below?)
+d1 $ rev $ sound "808*8" # n run 6 # speed "<0.25@3 0.15>" # room "0.75"
+d1 $ rev $ sound "808*8" # n "run 6" # speed "<0.25@3 0.15>" # room "0.75"
+
+-- with the parentheses run can be evaluated first then the resulted passed to n
+d1 $ rev $ sound "808*8" # n (run 6) # speed "<0.25@3 0.15>" # room "0.75"
+
+-- IMPORTANT CONCEPT:
+-- $ takes a parameter on the right and passes it to a function expecting a parameter on the left
+-- # combines two patterns
+
+-- new pattern
+
+-- % wraps a particular pattern around in the division after the %
+-- the below is the same as: $ s "808bd:0 808sd:7 808bd:2808bd:0 808sd:7 808bd:2 808bd:0 808sd:7" but it keeps wrapping around
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush "3"
+
+-- if we try to change crush with sine we don't hear anything since crush between 0 & 1 is inaudible
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush sine
+
+-- range takes an input on the right and puts it into another range
+-- but the following doesn't work:
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush range 2 8 sine
+
+-- need to evaluate it all first
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush (range 2 8 sine)
+
+-- this is equivalent to the line above, still works:
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush (range 2 8 $ sine)
+
+-- so when is the dollar important then?
+-- what if we wanted the sine wave to span multiple cycles?
+-- but the below doesn't work:
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush (slow 4 range 2 8 sine)
+
+-- slow is expecting an input (it is not a pattern), so we need the $
+-- otherwise it thinks the "range" function is its input and throws an error
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush (slow 4 $ range 2 8 sine)
+
+-- alternatively we could put the second part in parenthesis, which would evaluate it first
+-- then pass it to slow
+-- this is equivalent to the line above
+d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush (slow 4 (range 2 8 sine))
+
+-- more info here: https://tidalcycles.org/index.php/Understanding_the_$
+
+d1 silence
+d2 silence
+hush
