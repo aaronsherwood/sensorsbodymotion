@@ -13,7 +13,7 @@ d1 $ rev $ sound "808*8" # n (run 6) # speed 0.5 # room "0.75"
 d1 $ rev $ sound "808*8" # n (run 6) # speed -0.5 # room "0.75"
 
 -- need quotes:
-d1 $ rev $ sound "808*8" # n (run 6) # speed "0.5" # room "0.75"
+d1 $ rev $ sound "808*8" # n (run 6) # speed "-0.5" # room "0.75"
 
 -- this doesn't work:
 d1 $ rev $ sound "808*8" # n (run 6) # speed <0.25 0.15> # room "0.75"
@@ -38,7 +38,7 @@ d1 $ rev $ sound "808*8" # n (run 6) # speed "<0.25@3 0.15>" # room "0.75"
 -- new pattern
 
 -- % wraps a particular pattern around in the division after the %
--- the below is the same as: $ s "808bd:0 808sd:7 808bd:2808bd:0 808sd:7 808bd:2 808bd:0 808sd:7" but it keeps wrapping around
+-- the below is the same as: $ s "808bd:0 808sd:7 808bd:2 808bd:2 808bd:0 808sd:7 808bd:2 808bd:0 808sd:7" but it keeps wrapping around
 d2 $ fast 2 $ s "{808bd:0 808sd:7 808bd:2}%8" # room "0.25" # crush "3"
 
 -- if we try to change crush with sine we don't hear anything since crush between 0 & 1 is inaudible
