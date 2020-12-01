@@ -42,7 +42,7 @@ function mousePressed(){
   }).done(function ( data ) {
     console.log("file name: " + data.filename);
     savedImage = loadImage(data.filename);
-});
+  });
   // have to recreate the video element
   video = createCapture(VIDEO);
   video.hide();
