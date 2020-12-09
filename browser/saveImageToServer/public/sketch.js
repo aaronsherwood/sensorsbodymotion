@@ -17,8 +17,7 @@ function draw(){
     if (savedImage){
       push();
       translate(640, 0);
-      tint(255,100);
-      image(savedImage, 0, 0, 320, 240);
+      image(savedImage, 0, 0);
       text("Saved image loaded from server", 20, 20);
       pop();
     }
